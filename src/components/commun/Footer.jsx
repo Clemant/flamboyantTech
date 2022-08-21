@@ -6,7 +6,7 @@ function Footer() {
       sx={{
         height: 300,
         width: "100%",
-        marginTop: 35,
+        marginTop: 15,
         backgroundColor: "#1976d2",
       }}
     >
