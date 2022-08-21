@@ -10,11 +10,12 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Contact from "../Contact";
 import Services from "../Services";
 import About from "../About";
 import Home from "../Home";
+import HomeB from "../bandeau/HomeB";
 
 const navItems = [
   { page: "/home", title: "Acceuil" },
@@ -26,6 +27,7 @@ const navItems = [
 const toggleDrawer = () => {};
 
 const NavBar = () => {
+  let location = window.location.pathname.replace("/", "");
   return (
     <BrowserRouter>
       <AppBar position="static" component="nav">
@@ -78,29 +80,26 @@ const NavBar = () => {
       <Box
         sx={{
           width: "100%",
-          height: 165,
-          marginBottom: 5,
-          marginTop: 5,
+          marginBottom: 9,
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{ fontFamily: "Open Sans", paddingLeft: 2 }}
-        >
-          FlamboyanTech
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          sx={{ fontFamily: "Open Sans", marginTop: 2, paddingLeft: 2 }}
-        >
-          Phrase d'accroche
-        </Typography>
+        {location == "about" ? (
+          <p>about b</p>
+        ) : location == "services" ? (
+          <p>service b</p>
+        ) : location == "contact" ? (
+          <p>contact b</p>
+        ) : (
+          <HomeB />
+        )}
       </Box>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="services" element={<Services />} />
+        <Route path="services/:id" element={<Services />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

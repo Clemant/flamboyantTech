@@ -1,0 +1,50 @@
+$var_center: center;
+$var_white_color: white;
+/*#F8F7FF*/
+@mixin theme($theme: DarkGray) {
+  display: flex;
+  justify-content: $var_center;
+  margin: 20px;
+  text-decoration: none;
+  text-align: $var_center;
+
+  &:hover {
+    .test {
+      color: $var_white_color;
+      letter-spacing: 1px;
+      background-color: $theme;
+    }
+
+    div {
+      background-color: $theme;
+      color: $var_white_color;
+      text-align: $var_center;
+      border: $theme;
+    }
+  }
+}
+
+.Formation {
+  @include theme($theme: #f7e574);
+}
+.Vente {
+  @include theme($theme: #00af54);
+}
+.Conseil {
+  @include theme($theme: #46c2d0);
+}
+.Support {
+  @include theme($theme: #e1932d);
+}
+
+.container {
+  background-image: url("https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  & > div {
+    color: white;
+  }
+  & > img {
+    opacity: 0.5;
+  }
+}
